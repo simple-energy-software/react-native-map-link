@@ -120,7 +120,10 @@ export function askAppChoice({
 }) {
   return new Promise(async (resolve) => {
     let availableApps = await getAvailableApps(prefixes);
-
+    
+    // Simple - Force Option
+    availableApps = ["truckmap", ...availableApps];
+    
     if (appsWhiteList && appsWhiteList.length) {
       availableApps = availableApps.filter((appName) =>
         appsWhiteList.includes(appName),
